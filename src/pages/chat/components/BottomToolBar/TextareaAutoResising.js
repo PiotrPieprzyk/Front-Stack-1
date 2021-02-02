@@ -1,10 +1,9 @@
 import React, { useEffect, useContext, useState, useRef } from "react";
-import styled, { ThemeContext } from "styled-components";
+import { ThemeContext } from "styled-components";
 import { Flex } from "rebass";
 
-export const TextareaAutoResising = () => {
+export const TextareaAutoResising = (props) => {
   const [value, setValue] = useState();
-  const [textareaHeight, setTextareaHeight] = useState(14);
   const theme = useContext(ThemeContext);
   const textareaRef = useRef();
 
@@ -27,7 +26,6 @@ export const TextareaAutoResising = () => {
   const resetHeight = () => {
     const textarea = textareaRef.current;
     textarea.style.height = "inherit";
-    console.log("lol");
   };
 
   useEffect(() => {
@@ -64,6 +62,11 @@ export const TextareaAutoResising = () => {
           fontSize: `${theme.fontSizes[2]}px`,
           overflowY: "hidden",
         }}
+        onChange={(e) => {
+          const newValue = e.target.value; 
+          props.onChange(newValue);
+        }}
+        value={props.value}
       />
     </Flex>
   );

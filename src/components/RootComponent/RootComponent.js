@@ -25,11 +25,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     cursor: none;
   }
-  button{
-    background-color: none !important;
+  a,button{
+    background: none;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
   }
 `;
-background: ;
+background:;
 
 export const RootComponent = () => (
   <ThemeProvider theme={theme}>
@@ -40,7 +44,6 @@ export const RootComponent = () => (
         <Flex
           width="100vw"
           height="100vh"
-          p={3}
           flexDirection="column"
           bg={theme.colors.black}
           sx={{
